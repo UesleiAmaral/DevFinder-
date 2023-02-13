@@ -1,0 +1,65 @@
+.view-search {
+  width: 100%;
+  background-color: #1F2A48;
+  border-radius: 10px;
+
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.6);
+}
+
+table {
+  padding: 1rem;
+  width: 100%;
+
+}
+
+
+
+th {
+  font-size: 1.5rem;
+  color: #98a5c7;
+  padding: 0 1rem;
+  
+}
+
+td {
+  color: #98a5c7;
+    font-size: 1.5rem;
+  text-align: center;
+  padding-top: 10px;
+  font-weight: 700;
+  
+}
+
+tbody {
+  margin: 0 1rem;
+}
+
+.user {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+
+}
+
+.user a {
+  margin-left: 1rem;
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: white;
+
+}
+
+.user span {
+  font-size: 1.2rem;
+  color: #3195ff;
+  padding-top: 1rem;
+
+}
+
+.user img {
+  width: 100px;
+  height: 100px;
+  opacity: 1;
+  border-radius: 50%;
+}

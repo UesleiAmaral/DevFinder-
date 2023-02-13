@@ -6,37 +6,111 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/table.css">
     <title>Dev Finder</title>
   </head>
   <body>
-    <header>
-      <h1>DevFinder</h1>
-      <button class="favorites">Your Favorites</button>
 
-      <div class="theme">
-
-        <div class="light">
-          <img src="https://cdn-icons-png.flaticon.com/512/9231/9231712.png"
-            alt="imagem do sol">
+    <div class="container">
+      
+      <header>
+        <h1>DevFinder</h1>
+        <button class="favorites">Your Favorites</button>
+        <div class="theme">
+          <div class="light">
+            <img src="https://cdn-icons-png.flaticon.com/512/9231/9231712.png"
+              alt="imagem do sol">
+          </div>
+          <div class="dark hide">
+            <span>DARK</span>
+            <img src="https://cdn-icons-png.flaticon.com/512/9231/9231661.png"
+              alt="imagem do sol">
+          </div>
         </div>
-        <div class="dark hide">
-          <span>DARK</span>
-          <img src="https://cdn-icons-png.flaticon.com/512/9231/9231661.png"
-            alt="imagem do sol">
+      </header>
+      <main>
+        <div class="search">
+          <img src="https://cdn-icons-png.flaticon.com/512/8847/8847153.png"
+            alt="lupa de pesquisa">
+          <input type="text" placeholder="Search GitHub username...">
+          <button>Search</button>
         </div>
 
-      </div>
-    </header>
+        <div class="view-search">
+          <table>
+            <thead>
+              <th>Usuário</th>
+              <th>Repositórios</th>
+              <th>Followers</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="user">
+                  <img src="https://github.com/UesleiAmaral.png" alt="Imagem do
+                    Usuário">
+                  <a href="https://github.com/UesleiAmaral" target="_blank">
+                    <p>Ueslei Amaral</p>
+                    <span>github.com/UesleiAmaral</span>
+                  </a>
+                </td>
+                <td class="repositories">
+                  199
+                </td>
+                <td class="followers">
+                  20
+                </td>
+                <td>
+                  <button>Profile</button>
+                </td>
+              </tr>
+              <tr>
+                <td class="user">
+                  <img src="https://github.com/UesleiAmaral.png" alt="Imagem do
+                    Usuário">
+                  <a href="https://github.com/UesleiAmaral" target="_blank">
+                    <p>Ueslei Amaral</p>
+                    <span>github.com/UesleiAmaral</span>
+                  </a>
+                </td>
+                <td class="repositories">
+                  19
+                </td>
+                <td class="followers">
+                  2
+                </td>
+                <td>
+                  <button>Profile</button>
+                </td>
+              </tr>
+              <tr>
+                <td class="user">
+                  <img src="https://github.com/UesleiAmaral.png" alt="Imagem do
+                    Usuário">
+                  <a href="https://github.com/UesleiAmaral" target="_blank">
+                    <p>Ueslei Amaral</p>
+                    <span>github.com/UesleiAmaral</span>
+                  </a>
+                </td>
+                <td class="repositories">
+                  19
+                </td>
+                <td class="followers">
+                  2
+                </td>
+                <td>
+                  <button>Profile</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-    <main>
-      <img src="https://cdn-icons-png.flaticon.com/512/8847/8847153.png"
-        alt="lupa de pesquisa">
-      <input type="text" placeholder="Search GitHub username...">
-      <button>Search</button>
-    </main>
+        
+      </main>
+    </div>
 
+      
     <div id="app"></div>
-
 
   </body>
 </html>
