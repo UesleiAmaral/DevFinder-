@@ -65,8 +65,8 @@ h1 {
   display: none;
 }
 
-main {
-  width: 100%;
+main{
+  width: 701px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -76,9 +76,9 @@ main {
 
 .search{
   display: flex;
+  width: 100%;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
   padding: .6rem;
   background-color: #1F2A48;
   border-radius: 15px;
@@ -95,7 +95,7 @@ main img {
 }
 
 main input {
-  width: 70%;
+  width: 100%;
   height: 100%;
   padding: 1rem;
   background-color: transparent;
@@ -111,7 +111,7 @@ main input::placeholder {
 
 }
 
-main button {
+main button{
   width: 130px;
   padding: 1.3rem;
   border-radius: 10px;
@@ -122,4 +122,10 @@ main button {
   font-weight: 700;
   font-size: 1rem;
   border: none;
+}
+
+.profile{
+  background: transparent;
+  border: none;
+  cursor: pointer;
 }
