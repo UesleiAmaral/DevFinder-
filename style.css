@@ -30,7 +30,7 @@ header {
   justify-content: space-between;
   align-items: center;
 
-  padding: 2rem 0;
+  padding: 1.5rem 0;
 
 }
 
@@ -65,8 +65,8 @@ h1 {
   display: none;
 }
 
-main{
-  width: 701px;
+main, .profile-user{
+  width: 901px;
   display: flex;
   flex-direction: column;
   align-items: center;
