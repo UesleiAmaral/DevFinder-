@@ -2,7 +2,7 @@
   flex-direction: row;
   align-items: start;
   background-color: #1F2A48;
-  margin-top:10px;
+  margin-top: 10px;
   gap: 3rem;
   padding: 2rem;
   border-radius: 15px;
@@ -10,18 +10,17 @@
 
 }
 
-.profile-user figure{
-}
+.profile-user figure {}
 
-.profile-user img{
+.profile-user img {
   width: 250px;
   height: 250px;
 
-border-radius: 50%;
+  border-radius: 50%;
 
 }
 
-.name-user{
+.name-user {
   font-size: 1.3rem;
   color: white;
 }
@@ -32,31 +31,63 @@ border-radius: 50%;
   display: flex;
   flex-wrap: wrap;
 
-justify-content: space-between;
+  justify-content: space-between;
   gap: 1.2rem;
 
 }
 
+.my-favorites {
+  background-color: transparent;
+  padding: 0;
+}
 
-.user p{
+.my-favorites button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+}
+
+.my-favorites img {
+  width: 40px;
+  height: 40px;
+  border-radius: 0;
+
+}
+
+.my-favorites .heart {
+  animation: jump .5s;
+  animation-iteration-count: infinite;
+  
+  
+}
+
+.my-favorites .heart-red {
+  animation: scale .6s;
+  animation-iteration-count: 2;
+
+}
+
+.user p {
   font-size: 1.2rem;
   text-align: justify;
-    color: #98a5c7;
+  color: #98a5c7;
 
 }
 
-.date-profile{
+.date-profile {
   width: 100%;
-    background-color: #141C2F;
-      border-radius: 15px;
+  background-color: #141C2F;
+  border-radius: 15px;
 }
 
-.date-profile th, .date-profile td{
+.date-profile th,
+.date-profile td {
   font-size: 1.4rem;
 
 }
 
-.contacts{
+.contacts {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -65,7 +96,7 @@ justify-content: space-between;
   gap: 1rem;
 }
 
-.contacts a{
+.contacts a {
   display: flex;
   justify-content: center;
   align-content: center;
@@ -76,10 +107,43 @@ justify-content: space-between;
   margin: 0;
 }
 
-.contacts img{
+.contacts img {
   margin-right: 20px;
   border-radius: 0;
   width: 20px;
   height: 20px;
+  
 }
 
+@keyframes jump {
+  0% {
+    margin-top: 0;
+  }
+
+  25% {
+    margin-top: 7px;
+  }
+
+  50% {
+    margin-top: 0;
+  }
+
+  75% {
+    margin-top: -7px;
+  }
+
+  100% {
+    margin-top: 0;
+  }
+}
+
+@keyframes scale {
+  from {
+    transition: transform 1s;
+    transform: translateX(0) scale(0);
+  }
+
+  to {
+    transform: translateX(10px) scale(40px);
+  }
+}
