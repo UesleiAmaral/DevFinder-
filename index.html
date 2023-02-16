@@ -10,9 +10,10 @@
     <link rel="stylesheet" href="/profile.css">
 
     <title>Dev Finder</title>
+
+    <script src="/scripts/main.js" type="module" defer></script>
   </head>
   <body>
-
     <div class="container">
 
       <header>
@@ -30,7 +31,6 @@
           </div>
         </div>
       </header>
-
       <main>
         <div class="search">
           <img src="https://cdn-icons-png.flaticon.com/512/8847/8847153.png"
@@ -38,14 +38,47 @@
           <input type="text" placeholder="Search GitHub username...">
           <button>Search</button>
         </div>
+
       </main>
 
+      <div id="app">
+        <div class="view-search">
+          <table>
+            <thead>
+              <th>Usuário</th>
+              <th>Repositórios</th>
+              <th>Followers</th>
+            </thead>
+            <tbody>
 
-      
+              <tr>
+                <td class="user">
+                  <img src="https://github.com/UesleiAmaral.png" alt="Imagem do
+                    Usuário">
+                  <a href="https://github.com/UesleiAmaral" target="_blank">
+                    <p>Ueslei Amaral</p>
+                    <span>github.com/UesleiAmaral</span>
+                  </a>
+                </td>
+                <td class="repositories">199</td>
+                <td class="followers">20</td>
+                <td><a href="/pages/profile.html" class="profile"><img
+                      src="https://cdn-icons-png.flaticon.com/512/8847/8847153.png"
+                      alt=""></a>
 
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+
+      </div>
     </div>
 
-    <div id="app"></div>
+
+
+
 
   </body>
 </html>
