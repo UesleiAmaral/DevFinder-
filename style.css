@@ -131,6 +131,11 @@ main input::placeholder {
 
 }
 
+button, a{
+  cursor: pointer;
+
+}
+
 main button{
   width: 130px;
   padding: 1.3rem;
@@ -142,10 +147,5 @@ main button{
   font-weight: 700;
   font-size: 1rem;
   border: none;
-}
 
-.profile{
-  background: transparent;
-  border: none;
-  cursor: pointer;
 }
