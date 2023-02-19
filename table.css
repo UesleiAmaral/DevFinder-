@@ -1,7 +1,5 @@
 .view-search, .view-favorites {
   margin-top: 1rem;
-  /* background-color: #1F2A48; */
-  /* background-color: #1F2A48; */
   width: 100%;
   
 }
@@ -24,12 +22,8 @@ thead th{
 }
 
 th {
-  background-color: #1F2A48;
-  /* border: 1px solid black; */
-  width: 100%;
   font-size: 1.5rem;
   color: #98a5c7;
-  padding: 0 1rem;
   
 }
 
@@ -37,7 +31,7 @@ td {
   color: #98a5c7;
   font-size: 1.5rem;
   text-align: center;
-  padding-top: 2rem;
+  padding: 2rem;
   font-weight: 700;
   
 }
@@ -49,13 +43,10 @@ tbody {
 
 tbody tr{
   border-radius: 50%;
-  /* background-color: red; */
-  
 }
 
 tr:nth-last-child(2n){
-  background-color: green;
-
+  background-color: #1F2A48;
 }
 
 .user {
@@ -74,10 +65,14 @@ tr:nth-last-child(2n){
 
 }
 
+.user a p{
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
 .user span {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   color: #3195ff;
-  padding-top: 1rem;
 
 }
 

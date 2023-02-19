@@ -1,11 +1,11 @@
 import { FavoritesView } from "./Favorites.js";
 
 
-const buttonSearch = document.querySelector('.favorites');
+const buttonFavorites = document.querySelector('.favorites');
 
-buttonSearch.addEventListener('click', (event) => {
+buttonFavorites.addEventListener('click', (event) => {
   event.preventDefault();
   new FavoritesView('#app');
 
-
 });
+

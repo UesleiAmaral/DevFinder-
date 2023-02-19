@@ -1,3 +1,5 @@
+import { Profile } from "./profile.js";
+
 export class Favorites {
   constructor(root) {
     this.root = document.querySelector(root);
@@ -43,6 +45,11 @@ export class Favorites {
 
   };
 
+  clearDisplay() {
+    this.root.remove(this.root.children);
+
+  };
+
 };
 
 export class FavoritesView extends Favorites {
@@ -59,10 +66,6 @@ export class FavoritesView extends Favorites {
 
   };
 
-  clearDisplay() {
-    this.root.remove(this.root.children);
-
-  };
 
   removeAllTr() {
     const tr = this.root.querySelectorAll("table tbody tr");
@@ -93,13 +96,11 @@ export class FavoritesView extends Favorites {
       elementData.querySelectorAll('.view-profile').forEach((element) => {
         element.addEventListener('click', (event) => {
           event.preventDefault();
-          this.clearDisplay();
+          new Profile('#app');
         
       })
 
       });
-
-
     });
 
   };
