@@ -3,30 +3,14 @@ import { Profile } from "./profile.js";
 export class Favorites {
   constructor(root) {
     this.root = document.querySelector(root);
-
-    this.data =
-      [
-        {
-          login: 'UesleiAmaral',
-          name: 'Ueslei Amaral',
-          public_repos: '19',
-          followers: '12'
-        },
-        {
-          login: 'maykbrito',
-          name: 'Mayk Brito',
-          public_repos: '76',
-          followers: '120000'
-        },
-        {
-          login: 'diego3g',
-          name: 'Diego Fernandes',
-          public_repos: '76',
-          followers: '110000'
-        },
-      ];
+    this.load();
 
   };
+
+  load() {
+    this.data = JSON.parse(localStorage.getItem('@github-favorites')) || [];
+
+  }
 
   delete(user, elementData) {
 
@@ -40,16 +24,8 @@ export class Favorites {
         this.update();
 
       }
-
     });
-
   };
-
-  clearDisplay() {
-    this.root.remove(this.root.children);
-
-  };
-
 };
 
 export class FavoritesView extends Favorites {
@@ -61,78 +37,86 @@ export class FavoritesView extends Favorites {
   };
 
   update() {
-    this.removeAllTr();
-    this.addAllTr();
+    this.root.innerHTML = '';
+    this.addAllFavorites();
 
   };
 
-
-  removeAllTr() {
-    const tr = this.root.querySelectorAll("table tbody tr");
-
-    tr.forEach((tr) => {
-      tr.remove();
+  buttonFavorites() {
+    const buttonFavorites = document.querySelector('.favorites');
+    buttonFavorites.addEventListener('click', (event) => {
+      event.preventDefault();
+      this.update();
 
     });
 
   };
 
-  addAllTr() {
-    const tbody = document.querySelector('table tbody');
-
+  addAllFavorites() {
     this.data.forEach(user => {
 
-      const elementData = this.createRow({
-        login: user.login,
-        name: user.name,
-        public_repos: user.public_repos,
-        followers: user.followers
+      const elementData = this.createFavorites({
+        login,
+        name,
+        public_repos,
+        followers,
       });
 
       this.delete(user, elementData);
-      tbody.append(elementData);
-
+      this.root.append(elementData);
 
       elementData.querySelectorAll('.view-profile').forEach((element) => {
         element.addEventListener('click', (event) => {
           event.preventDefault();
+          this.root.innerHTML = '';
           new Profile('#app');
-        
-      })
+
+        })
 
       });
     });
 
   };
 
-  createRow({ login, name, public_repos, followers }) {
-    const tr = document.createElement('tr');
+  createFavorites({ login, name, public_repos, followers }) {
+    const div = document.createElement('div');
+    div.classList.add('view-favorites');
 
-    tr.innerHTML =
+    div.innerHTML =
       `
-      <td class="user">
-        <a class="view-profile">
-          <img src="https://github.com/${login}.png" alt="Imagem do(a)
-            Usuário(a) ${name}">
-        </a>
-        <a href="https://github.com/${login}" target="_blank">
-          <p>${name}</p>
-          <span>github.com/${login}</span>
-        </a>
-      </td>
-      <td class="repositories">${public_repos}</td>
-      <td class="followers">${followers}</td>
-      <td><button class="star-delete"><img
-            src="https://cdn-icons-png.flaticon.com/512/9654/9654683.png"
-            alt=""></button>
-      </td>
+      <table
+        cellpadding="0"
+        cellspacing="0">
+        <thead>
+          <th>Usuário</th>
+          <th>Repositórios</th>
+          <th>Followers</th>
+          <th></th>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="user">
+              <a class="view-profile">
+                <img src="https://github.com/${login}.png" alt="Imagem do(a)
+                Usuário(a) ${name}">
+              </a>
+                <a href="https://github.com/${login}" target="_blank">
+                <p>${name}</p>
+                <span>github.com/${login}</span>
+              </a>
+            </td>
+            <td class="repositories">${public_repos}</td>
+            <td class="followers">${followers}</td>
+            <td>
+              <button class="star-delete">
+                <img src="https://cdn-icons-png.flaticon.com/512/9654/9654683.png" alt="">
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     `
-    return tr;
+    return div;
   };
-
-
-  testeProfile() {
-    
-  }
 
 };

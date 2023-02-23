@@ -1,26 +1,52 @@
 import { Favorites } from "./Favorites.js";
 
-
 export class Profile {
-  constructor(root) {
+  constructor(root, user) {
     this.root = document.querySelector(root);
     this.favorites = new Favorites('app');
+
+    this.user = user;
 
     this.update();
 
   };
 
+  addFavorites(element) {
+    const star = element.querySelector('.star');
+
+    star.addEventListener('click', () => {
+      const starRed = element.querySelector('.star-red')
+      starRed.classList.remove('hide');
+      star.classList.add('hide');
+
+    })
+
+    // AQUI VEM A ADIÇAO AO LOCALSTORAGE
+
+  }
+
+  removeFavorites(element) {
+    const starRed = element.querySelector('.star-red');
+
+    starRed.addEventListener('click', () => {
+      const star = element.querySelector('.star')
+      star.classList.remove('hide');
+      starRed.classList.add('hide');
+
+    })
+
+    // AQUI VEM A EXCLUSÃO DO LOCALSTORAGE
+  }
+
   update() {
 
-    this.root.children.item(0).remove()
+    this.root.innerHTML = '';
     this.addProfile();
 
   };
 
 
   createProfile({ login, name, joined, bio, public_repos, followers, following }) {
-
-    following = 12000
 
     const profile = document.createElement('div');
 
@@ -33,7 +59,6 @@ export class Profile {
   </figure>
 
   <div class="user">
-
     <div class="name-user">
       <h2>${name}</h2>
       <span>github.com/${login}</span>
@@ -49,13 +74,13 @@ export class Profile {
 
     <div class="my-favorites">
 
-      <button class="heart">
+      <button class="star">
         <img
           src="https://cdn-icons-png.flaticon.com/512/9655/9655065.png"
           alt="">
       </button>
 
-      <button class="heart-red hide">
+      <button class="star-red hide">
         <img
           src="https://cdn-icons-png.flaticon.com/512/9654/9654683.png"
           alt="">
@@ -63,8 +88,7 @@ export class Profile {
 
     </div>
 
-    <p>${bio}Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum,
-    </p>
+    <p>${bio}</p>
 
     <table class="date-profile">
       <thead>
@@ -95,9 +119,7 @@ export class Profile {
           src="https://cdn-icons-png.flaticon.com/512/270/270808.png"
           alt="linkedin do usuario">Linkedin</a>
     </div>
-
   </div>
-
 
     `;
 
@@ -107,14 +129,21 @@ export class Profile {
 
   addProfile() {
 
-    const elementData = this.createProfile({
-      login: this.favorites.data[1].login,
-      name: this.favorites.data[1].name,
-      public_repos: this.favorites.data[1].public_repos,
-      followers: this.favorites.data[1].followers
-    });
+    this.user.forEach(element => {
+      const elementData = this.createProfile({
+        login: element.login,
+        name: element.name,
+        public_repos: element.public_repos,
+        followers: element.followers,
+        bio: element.bio,
+        following: element.following
+      });
+      
+      this.addFavorites(elementData);
+      this.removeFavorites(elementData);
+      this.root.append(elementData);
 
-    this.root.append(elementData);
+    });
 
   }
 };

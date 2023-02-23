@@ -55,14 +55,14 @@
 
 }
 
-.my-favorites .heart {
+.my-favorites .star {
   animation: jump .5s;
   animation-iteration-count: infinite;
 
 
 }
 
-.my-favorites .heart-red {
+.my-favorites .star-red {
   animation: scale .6s;
   animation-iteration-count: 2;
 
