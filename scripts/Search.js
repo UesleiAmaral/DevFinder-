@@ -10,35 +10,53 @@ export class Search {
   };
 
   dataSearch() {
-    this.data = [];
+    this.data;
 
-  }
+  };
 
   async add(user) {
-    const userData = await GithubUser.search(user);
 
-    this.data = [userData];
+    try {
 
-    this.data.forEach((element) => {
-      this.renderSearch(element.login, element.name, element.public_repos, element.followers);
+      const userData = await GithubUser.search(user);
 
-    })
+      if (userData.login === undefined || userData.login === null) {
+        throw new Error('Usuário não encontrado!');
 
+      } else {
+        this.renderSearch(userData.login, userData.name, userData.public_repos, userData.followers);
+
+      };
+      this.data = userData;
+
+    } catch (e) {
+      alert(e.message);
+
+    };
   };
 
   onAdd() {
     const search = document.querySelector('.search-button');
+    let inputUser = document.querySelector('.input-search');
 
     search.addEventListener('click', () => {
-      let { value } = document.querySelector('.input-search');
+      this.add(inputUser.value);
+      inputUser.value = '';
 
-      this.add(value);
+    });
 
-    })
+    inputUser.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') {
+        this.add(inputUser.value);
+        inputUser.value = '';
+
+      };
+    });
 
   };
 
   renderSearch(login, name, public_repos, followers) {
+    this.root.innerHTML = '';
 
     const element = this.createSearch({
       login,
@@ -53,11 +71,9 @@ export class Search {
       new Profile('#app', this.data);
 
     });
-
     this.root.append(element);
 
-
-  }
+  };
 
   createSearch({ login, name, public_repos, followers }) {
     const div = document.createElement('div');
@@ -98,6 +114,4 @@ export class Search {
     `
     return div;
   };
-
-
-}
+};

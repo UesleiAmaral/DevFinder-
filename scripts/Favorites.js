@@ -10,7 +10,12 @@ export class Favorites {
   load() {
     this.data = JSON.parse(localStorage.getItem('@github-favorites')) || [];
 
-  }
+  };
+
+  save() {
+    localStorage.setItem('@github-favorites', JSON.stringify(this.data));
+
+  };
 
   delete(user, elementData) {
 
@@ -21,18 +26,18 @@ export class Favorites {
 
       if (isOk) {
         this.data = this.data.filter((entry) => entry.login != user.login);
+        this.save();
         this.update();
 
-      }
+      };
     });
   };
 };
 
 export class FavoritesView extends Favorites {
   constructor(root) {
-
     super(root);
-    this.update();
+    this.buttonFavorites();
 
   };
 
@@ -46,20 +51,20 @@ export class FavoritesView extends Favorites {
     const buttonFavorites = document.querySelector('.favorites');
     buttonFavorites.addEventListener('click', (event) => {
       event.preventDefault();
+      this.load();
       this.update();
 
     });
-
   };
 
   addAllFavorites() {
     this.data.forEach(user => {
 
       const elementData = this.createFavorites({
-        login,
-        name,
-        public_repos,
-        followers,
+        login: user.login,
+        name: user.name,
+        public_repos: user.public_repos,
+        followers: user.followers,
       });
 
       this.delete(user, elementData);
@@ -71,11 +76,9 @@ export class FavoritesView extends Favorites {
           this.root.innerHTML = '';
           new Profile('#app');
 
-        })
-
+        });
       });
     });
-
   };
 
   createFavorites({ login, name, public_repos, followers }) {
@@ -118,5 +121,4 @@ export class FavoritesView extends Favorites {
     `
     return div;
   };
-
 };

@@ -6,8 +6,14 @@ export class Profile {
     this.favorites = new Favorites('app');
 
     this.user = user;
-
     this.update();
+    this.local_Storage = JSON.parse(localStorage.getItem('@github-favorites')) || [];
+
+  };
+
+  save() {
+    this.local_Storage.push(this.user);
+    localStorage.setItem('@github-favorites', JSON.stringify(this.local_Storage));
 
   };
 
@@ -15,15 +21,20 @@ export class Profile {
     const star = element.querySelector('.star');
 
     star.addEventListener('click', () => {
-      const starRed = element.querySelector('.star-red')
+      const starRed = element.querySelector('.star-red');
+      const findUser = this.local_Storage.find(entry => entry.login === this.user.login);
       starRed.classList.remove('hide');
       star.classList.add('hide');
 
-    })
+      if (findUser) {
+        return;
 
-    // AQUI VEM A ADIÇAO AO LOCALSTORAGE
+      } else {
+        this.save();
 
-  }
+      };
+    });
+  };
 
   removeFavorites(element) {
     const starRed = element.querySelector('.star-red');
@@ -33,23 +44,18 @@ export class Profile {
       star.classList.remove('hide');
       starRed.classList.add('hide');
 
-    })
-
-    // AQUI VEM A EXCLUSÃO DO LOCALSTORAGE
-  }
+    });
+  };
 
   update() {
-
     this.root.innerHTML = '';
     this.addProfile();
 
   };
 
-
   createProfile({ login, name, joined, bio, public_repos, followers, following }) {
 
     const profile = document.createElement('div');
-
     profile.classList.add('profile-user');
 
     profile.innerHTML = `
@@ -129,22 +135,19 @@ export class Profile {
 
   addProfile() {
 
-    this.user.forEach(element => {
-      const elementData = this.createProfile({
-        login: element.login,
-        name: element.name,
-        public_repos: element.public_repos,
-        followers: element.followers,
-        bio: element.bio,
-        following: element.following
-      });
-      
-      this.addFavorites(elementData);
-      this.removeFavorites(elementData);
-      this.root.append(elementData);
-
+    const elementData = this.createProfile({
+      login: this.user.login,
+      name: this.user.name,
+      public_repos: this.user.public_repos,
+      followers: this.user.followers,
+      bio: this.user.bio,
+      following: this.user.following
     });
 
-  }
+    this.addFavorites(elementData);
+    this.removeFavorites(elementData);
+    this.root.append(elementData);
+
+  };
 };
 
