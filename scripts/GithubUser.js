@@ -2,7 +2,7 @@ export class GithubUser {
   static async search(user) {
     const endpoint = `https://api.github.com/users/${user}`;
     const data = await fetch(endpoint);
-    const { login, name, public_repos, followers, following, bio } = await data.json();
+    const { login, name, public_repos, followers, following, bio, created_at, location } = await data.json();
 
     return ({
       login,
@@ -10,7 +10,9 @@ export class GithubUser {
       public_repos,
       followers,
       following,
-      bio
+      bio,
+      created_at,
+      location
 
     });
   };

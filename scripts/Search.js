@@ -1,5 +1,5 @@
 import { GithubUser } from "./GithubUser.js";
-import { Profile } from "./profile.js";
+import { Profile } from "./Profile.js";
 
 export class Search {
   constructor(root) {

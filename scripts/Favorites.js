@@ -1,4 +1,4 @@
-import { Profile } from "./profile.js";
+import { Profile } from "./Profile.js";
 
 export class Favorites {
   constructor(root) {

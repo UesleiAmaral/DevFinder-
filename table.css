@@ -58,9 +58,7 @@ tr:nth-last-child(2n){
 }
 
 .user a {
-  margin-left: 1rem;
   text-decoration: none;
-  font-size: 1.5rem;
   color: white;
 
 }
@@ -71,8 +69,10 @@ tr:nth-last-child(2n){
 }
 
 .user span {
-  font-size: 1.5rem;
+  font-size: clamp(1.2rem, 3vw, 1.3rem);
   color: #3195ff;
+
+  margin-right: .2rem;
 
 }
 
