@@ -1,16 +1,16 @@
 # DevFinder
 
-![GitHub repo size](https://img.shields.io/github/repo-size/UesleiAmaral/spa-universe)
+![GitHub repo size](https://img.shields.io/github/repo-size/UesleiAmaral/DevFinder-)
 ![html](https://img.shields.io/badge/-HTML-red)
 ![css](https://img.shields.io/badge/-CSS-blueviolet)
 ![javascript](https://img.shields.io/badge/-JAVASCRIPT-yellow)
 ![SPA](https://img.shields.io/badge/-SPA-black)
-![LITE-SERVER](https://img.shields.io/badge/-LITE--SERVER-orange)
+![LIVE-SERVER](https://img.shields.io/badge/-LIVE--SERVER-orange)
 ![NODE](https://img.shields.io/badge/-NODE-brightgreen)
 
 
 
-<img src="https://github.com/UesleiAmaral/utils/blob/main/devFinderHome.png" alt="exemplo imagem" alignItem="center">  <img src="https://github.com/UesleiAmaral/utils/blob/main/devFinderSearch.png" alt="image-1" border="0">
+<img src="https://github.com/UesleiAmaral/utils/blob/main/devFinderHome.png" alt="exemplo imagem" alignItem="center">
 
 > Projeto Pessoal layout retirado do site <a href="https://www.frontendmentor.io/challenges/github-user-search-app-Q09YOgaH6" target="blank_">FrontEnd Mentor.</a>
 
@@ -18,7 +18,7 @@
 
 Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
-* Você instalou a versão mais recente do `< Git / Lite-server / Node >`
+* Você instalou a versão mais recente do `< Git / Live-server / Node >`
 
 ## 🚀 Instalando DevFinder
 
@@ -49,19 +49,28 @@ npm install
 npm start
 ```
 
-<img src="https://i.ibb.co/YP3JNNV/Capturar.png" alt="Capturar" border="0">
-
-<img src="https://i.ibb.co/8B4M3Gd/Capturar2.png" alt="Capturar2" border="0">
-
 ```
 2. A página irá abrir automaticamente no navegador.
 ```
 
 ```
-3. Navegue por todas as páginas.
+3. Digite o nome do Usuário no GITHUB e clique em SEARCH ou tecle ENTER.
+```
+```
+4. Clique na lupa para visualizar as informações do usuário pesquisado.
+```
+  <img src="https://github.com/UesleiAmaral/utils/blob/main/devFinderSearch.png" alt="image-1" border="0" >
+
+```
+5. Caso queira favoritar o usuário clique na estrela.
+```
+<img src="https://github.com/UesleiAmaral/utils/blob/main/devFinderSearchView.png" alt="image-1" border="0" width="500" >
+
+```
+6. O usuário favoritado fica salvo até ter a estrela removida.
 ```
 
-<img src="https://i.ibb.co/Hx2MzDJ/image-2.png" alt="image-2" border="0">
+<img src="https://github.com/UesleiAmaral/utils/blob/main/youFavorites.png" alt="image-1" border="0" width="500" >
 
 ## 📫 Contribuindo para a  DevFinder
 
