@@ -5,7 +5,7 @@
 ![css](https://img.shields.io/badge/-CSS-blueviolet)
 ![javascript](https://img.shields.io/badge/-JAVASCRIPT-yellow)
 ![SPA](https://img.shields.io/badge/-SPA-black)
-![LITE-SERVER](https://img.shields.io/badge/-LIVE--SERVER-orange)
+![LITE-SERVER](https://img.shields.io/badge/-LITE--SERVER-orange)
 ![NODE](https://img.shields.io/badge/-NODE-brightgreen)
 
 
