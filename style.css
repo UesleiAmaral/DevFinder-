@@ -18,7 +18,7 @@ body {
   font-size: 62.5%;
   height: 100%;
   display: grid;
-  
+  margin: 0 auto;
   background-color: #141C2F;
   width: 65%;
 }
@@ -121,6 +121,7 @@ main input {
   font-size: 1.5rem;
   color: white;
   border: none;
+  width: 100%;
 
   outline: none;
 }
