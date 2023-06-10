@@ -74,7 +74,7 @@ export class FavoritesView extends Favorites {
         element.addEventListener('click', (event) => {
           event.preventDefault();
           this.root.innerHTML = '';
-          new Profile('#app');
+          new Profile('#app', user);
 
         });
       });
