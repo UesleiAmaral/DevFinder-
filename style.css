@@ -149,3 +149,10 @@ main button{
   border: none;
 
 }
+
+@media (max-width: 600px){
+  body{
+    width: 100%;
+    }
+  
+  }
